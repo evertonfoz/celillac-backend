@@ -1,17 +1,14 @@
-import { Inject, Injectable } from '@nestjs/common';
-import { ORDERS_REPOSITORY } from '../repositories/orders.repository.interface';
-import { PAYMENTS_REPOSITORY } from '../../payments/repositories/payments.repository.interface';
-import type { OrdersRepository } from '../repositories/orders.repository.interface';
-import type { PaymentsRepository } from '../../payments/repositories/payments.repository.interface';
-import { OrderNotFoundException } from '../../../common/exceptions/order-not-found.exception';
+import { Inject, Injectable } from "@nestjs/common";
+import { ORDERS_REPOSITORY } from "../repositories/orders.repository.interface";
+import type { OrdersRepository } from "../repositories/orders.repository.interface";
+import { ConfirmOrderResponseDto } from "../dto/confirm-order-response.dto";
+import { OrderNotFoundException } from "../../../common/exceptions/order-not-found.exception";
 
 @Injectable()
 export class OrdersService {
     constructor(
         @Inject(ORDERS_REPOSITORY)
         private readonly ordersRepository: OrdersRepository,
-        @Inject(PAYMENTS_REPOSITORY)
-        private readonly paymentsRepository: PaymentsRepository,
     ) { }
 
     async confirmOrder(orderId: string) {
@@ -21,6 +18,7 @@ export class OrdersService {
             throw new OrderNotFoundException(orderId);
         }
 
-        throw new Error('Not implemented yet');
-    }
+        throw new Error("Method not implemented.");
+    } //: Promise<ConfirmOrderResponseDto> {
+
 }

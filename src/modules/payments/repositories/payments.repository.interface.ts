@@ -1,4 +1,4 @@
-import { Payment } from '../entities/payment.entity';
+import { Payment } from "../entities/payment.entity";
 
 export const PAYMENTS_REPOSITORY = 'PAYMENTS_REPOSITORY';
 
